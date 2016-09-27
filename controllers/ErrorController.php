@@ -12,7 +12,7 @@ use yii\web\Controller;
 
 class ErrorController extends Controller
 {
-    public function actionIndex()
+    public function actionError()
     {
         echo '程序员正在加班中';
     }
