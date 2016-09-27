@@ -72,6 +72,9 @@ $config = [
             'manage' => [
                 'class' => 'app\modules\manage\manage',
             ],
+            'test' => [
+                'class' => 'app\modules\test\Module',
+            ],
         ],
     ],
     'params' => $params,
