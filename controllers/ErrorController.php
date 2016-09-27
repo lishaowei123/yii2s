@@ -14,6 +14,6 @@ class ErrorController extends Controller
 {
     public function actionError()
     {
-        echo '程序员正在加班中';
+        echo '程序员正在加班中抢修中';
     }
 }
