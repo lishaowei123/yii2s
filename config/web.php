@@ -21,12 +21,25 @@ $config = [
         'errorHandler' => [
             'errorAction' => 'site/error',
         ],
+//        'mailer' => [
+//            'class' => 'yii\swiftmailer\Mailer',
+//            // send all mails to a file by default. You have to set
+//            // 'useFileTransport' to false and configure a transport
+//            // for the mailer to send real emails.
+//            'useFileTransport' => true,
+//        ],
         'mailer' => [
             'class' => 'yii\swiftmailer\Mailer',
-            // send all mails to a file by default. You have to set
-            // 'useFileTransport' to false and configure a transport
-            // for the mailer to send real emails.
-            'useFileTransport' => true,
+            //'viewPath' => '@common/mail',
+            'useFileTransport' => false,    //这里一定要改成false，不然邮件不会发送
+            'transport' => [
+                'class' => 'Swift_SmtpTransport',
+                'host' => 'smtp.163.com',
+                'username' => 'weisendo@163.com',
+                'password' => 'liwei13569980170',        //如果是163邮箱，此处要填授权码
+                'port' => '25',
+                'encryption' => 'tls',
+            ],
         ],
         'log' => [
             'traceLevel' => YII_DEBUG ? 3 : 0,
@@ -38,14 +51,28 @@ $config = [
             ],
         ],
         'db' => require(__DIR__ . '/db.php'),
-        /*
+
         'urlManager' => [
+//            'caseSensitive' => true,//路由是否区分大小写
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
+                [
+                    'class' => 'yii\rest\UrlRule',
+                    'controller' => ['book','bookarticle','test','images'],
+                    'pluralize' => false,
+                ],
             ],
         ],
-        */
+
+        'modules' => [
+            'portal' => [
+                'class' => 'app\modules\portal\portal',
+            ],
+            'manage' => [
+                'class' => 'app\modules\manage\manage',
+            ],
+        ],
     ],
     'params' => $params,
 ];
