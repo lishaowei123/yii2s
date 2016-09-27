@@ -69,6 +69,7 @@ $config = [
 
 
     ],
+    'language' => 'zh-CN',
     'modules' => [
         'portal' => [
             'class' => 'app\modules\portal\portal',
