@@ -65,16 +65,17 @@ $config = [
             ],
         ],
 
-        'modules' => [
-            'portal' => [
-                'class' => 'app\modules\portal\portal',
-            ],
-            'manage' => [
-                'class' => 'app\modules\manage\manage',
-            ],
-            'test' => [
-                'class' => 'app\modules\test\Module',
-            ],
+
+    ],
+    'modules' => [
+        'portal' => [
+            'class' => 'app\modules\portal\portal',
+        ],
+        'manage' => [
+            'class' => 'app\modules\manage\manage',
+        ],
+        'test' => [
+            'class' => 'app\modules\test\Module',
         ],
     ],
     'params' => $params,
